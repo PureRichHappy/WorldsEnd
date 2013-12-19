@@ -20,3 +20,5 @@ Route::get('users', function()
 {
     return View::make('users');
 });
+
+Route::controller('recommend', 'RecommendController');

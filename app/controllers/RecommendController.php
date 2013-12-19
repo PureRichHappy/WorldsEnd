@@ -1,6 +1,6 @@
 <?php
 
-class HomeController extends BaseController {
+class RecommendController extends BaseController {
 
 	/*
 	|--------------------------------------------------------------------------
@@ -15,9 +15,9 @@ class HomeController extends BaseController {
 	|
 	*/
 
-	public function showWelcome()
-	{
-		return View::make('hello');
+	public function getIndex()
+    {
+        $response = ["1" => "test1", "2" => "test2"];
+        echo json_encode($response);
 	}
-
 }
