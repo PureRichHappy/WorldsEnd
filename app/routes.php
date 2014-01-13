@@ -12,4 +12,5 @@
 */
 
 Route::controller('recommend', 'RecommendController');
-Route::controller('users', 'UserController');
+Route::resource('users', 'UserController');
+Route::resource('artists', 'ArtistController');

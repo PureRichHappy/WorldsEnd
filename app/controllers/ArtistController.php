@@ -10,6 +10,10 @@ class ArtistController extends \BaseController {
 	public function index()
 	{
 		//
+        $artists = Artist::all();
+        foreach ($artists as $artist) {
+            var_dump($artist->getName());
+        }
 	}
 
 	/**
@@ -30,6 +34,13 @@ class ArtistController extends \BaseController {
 	public function store()
 	{
 		//
+        $name = Input::get('name');
+        $artist = Artist::where('name', '=', $name)->get();
+        if (!count($artist)) {
+            $artist = new Artist;
+            $artist->Name = Input::get('name');
+            $bool = $artist->save();
+        }
 	}
 
 	/**

@@ -15,7 +15,7 @@ class CreateUsersTable extends Migration {
         Schema::create('users',
             function($table) {
                 $table->increments('id');
-                $table->string('uuid');
+                $table->string('uuid')->unique();
                 $table->timestamps();
             });
 	}
