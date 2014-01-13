@@ -33,14 +33,23 @@ class ArtistController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+        //ユーザデータの取得
+        $uuid = Input::get('uuid');
+        $user = User::where('uuid', '=', $uuid)->first();
+        if (!$user) {
+            return;
+        }
+
+        //artistデータの検証
         $name = Input::get('name');
         $artist = Artist::where('name', '=', $name)->get();
         if (!count($artist)) {
-            $artist = new Artist;
-            $artist->Name = Input::get('name');
-            $bool = $artist->save();
+            //artistの登録
+            $artist = new Artist(array('name' => $name));
         }
+
+        //関連データの登録
+        $user->artists()->save($artist);
 	}
 
 	/**

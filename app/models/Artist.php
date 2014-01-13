@@ -1,7 +1,6 @@
 <?php
 
-class Artist extends Eloquent
-{
+class Artist extends Eloquent {
 
 	/**
 	 * The database table used by the model.
@@ -21,4 +20,9 @@ class Artist extends Eloquent
 	{
     	return $this->name;
 	}
+
+    public function users()
+    {
+        return $this->belongsToMany('User', 'user_artist');
+    }
 }

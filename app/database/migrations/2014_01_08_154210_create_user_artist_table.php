@@ -15,8 +15,8 @@ class CreateUserArtistTable extends Migration {
         Schema::create('user_artist',
             function($table) {
                 $table->increments('id');
-                $table->integer('users_id');
-                $table->integer('artists_id');
+                $table->integer('user_id');
+                $table->integer('artist_id');
                 $table->timestamps();
             });
 	}
