@@ -42,10 +42,15 @@ class ArtistController extends \BaseController {
 
         //artistデータの検証
         $name = Input::get('name');
+        $itunes_id = Input::get('itunes_id');
+        $genre = Input::get('genre');
         $artist = Artist::where('name', '=', $name)->get();
         if (!count($artist)) {
             //artistの登録
-            $artist = new Artist(array('name' => $name));
+            $artist = new Artist(array('name' => $name, 
+                'itunes_id' => $itunes_id,
+                'genre' => $genre
+            ));
         }
 
         //関連データの登録

@@ -15,7 +15,9 @@ class CreateArtistsTable extends Migration {
         Schema::create('artists',
             function($table) {
                 $table->increments('id');
+                $table->integer('itunes_id');
                 $table->string('name');
+                $table->string('genre');
                 $table->timestamps();
             });
 	}
